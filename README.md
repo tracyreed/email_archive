@@ -51,4 +51,8 @@ parsing but I got that all nailed down and it just ran and ran for years.
 Upon retirement of this system and the dissolution of the organization which
 used it this code became my property.
 
+Other than the extime library present, all of the python code, templates, etc.
+were written solely by me. It was considered a boring project by others and
+nobody else ever wanted to touch it.
+
 - Tracy Reed <treed@tracyreed.org>
