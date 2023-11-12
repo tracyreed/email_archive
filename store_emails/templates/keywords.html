@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}{{ mail }}{% endblock %}
+{% block content %}
+
+      <form action="/keywords/" method="POST">
+        <fieldset>
+          <center>
+            <label for="keywords">
+	      Edit block/allow keywords here:
+	    </label>
+	    <p>
+	    <textarea id="keywords" 
+		      type="textarea" 
+		      name="keywords"
+		      rows="20" 
+		      cols="80">{{ priolist }}</textarea>
+            <input type="submit" value="Submit" />
+          </center>
+        </fieldset>
+      </form>
+
+{% endblock %}
+
+
+
+

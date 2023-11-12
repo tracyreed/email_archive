@@ -1,0 +1,27 @@
+#
+# Emails in this should all be long-dead accounts which now only get spam. We feed any emails to this address into 
+# mailfilter.crm --learnspam
+#
+# This list generated with:
+# cat /var/log/maillog*| grep "Recipient address rejected: User unknown in virtual mailbox table" | grep relay=inbound | sed -e 's/.*to=<//'| sed -e 's/>.*//'| grep domain3.net| sort |uniq -c | sort -n | tail -20
+#
+es8d143@domain3.net
+pn89625@domain3.net
+pp12e3b9@domain3.net
+rl163135@domain3.net
+sg92950@domain3.net
+ujd774f@domain3.net
+dd94e14@domain3.net
+mb95160@domain3.net
+th900b5@domain3.net
+tl8af85@domain3.net
+bb94e1f@domain3.net
+wc85100@domain3.net
+rj83874@domain3.net
+agb4046@domain3.net
+ck95182@domain3.net
+dk89364@domain3.net
+wowdomain3how@domain3.net
+ll94e5b@domain3.net
+pg8bc36@domain3.net
+wd8d78c@domain3.net

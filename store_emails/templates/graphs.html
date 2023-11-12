@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+
+<center>
+<table>
+    <tr>
+        <td colspan=2 align=center>
+            Sent/Received<br>
+            <a href="http://mx.domain1.com/cgi-bin/mailgraph.cgi">
+                <img src="/cgi-bin/mailgraph.cgi?0-n">
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td colspan=2 align=center>
+            Queued emails<br>
+            <a href="http://mx.domain1.com/cgi-bin/queuegraph.cgi">
+                <img src="/cgi-bin/queuegraph.cgi/queuegraph_0.png">
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td colspan=2 align=center>
+            mx in + domain3 out = datacenter bandwidth
+        </td>
+    </tr>
+    <tr>
+        <td>
+            mx bandwidth:<br>
+            <a href="http://munin.domain1.com/domain1.com/mx.domain1.com/index.html#network">
+                <img src="http://munin.domain1.com/domain1.com/mx.domain1.com/if_eth0-day.png">
+            </a>
+        </td>
+        <td>
+            domain3 bandwidth:<br>
+            <a href="http://munin.domain1.com/domain1.com/domain3.domain1.com/index.html#network">
+                <img src="http://munin.domain1.com/domain1.com/domain3.domain1.com/if_eth0-day.png"
+            </a>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Good mail:<br>
+            <a href="http://munin.domain1.com/domain1.com/mx.domain1.com/CRM114_good.html">
+                <img src="http://munin.domain1.com/domain1.com/mx.domain1.com/CRM114_good-day.png">
+            </a>
+        </td>
+        <td>
+            Spam mail:
+            <a href="http://munin.domain1.com/domain1.com/mx.domain1.com/CRM114_spam.html">
+                <img src="http://munin.domain1.com/domain1.com/mx.domain1.com/CRM114_spam-day.png">
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Unsure mail (gets delivered to customer):
+            <a href="http://munin.domain1.com/domain1.com/mx.domain1.com/CRM114_unsure.html">
+                <img src="http://munin.domain1.com/domain1.com/mx.domain1.com/CRM114_unsure-day.png">
+            </a>
+        </td>
+        <td>
+        </td>
+    </tr>
+</table>
+</center>
+
+{% endblock %}

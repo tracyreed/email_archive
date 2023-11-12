@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <link rel="stylesheet" href="/media/style.css" />
+    <title>{% block title %}domain3.net Spam Filter System{% endblock %}</title>
+  </head>
+
+  <body>
+
+    <div id="sidebar">
+      {% block sidebar %}
+      <dl>
+        <dt><a href="/good">Good</a></dt>
+        <dt><a href="/spam">Spam</a></dt>
+        <dt><a href="/unsure">Unsure</a></dt>
+        <dt><a href="/recent">Recent</a></dt>
+        <dt><a href="/stats">Stats</a></dt>
+	<dt><a href="/graphs">Graphs</a></dt>
+	<dt><a href="/keywords">Keywords</a></dt>
+	<dt><a href="https://regex101.com/">Regex101</a></dt>
+      </dl>
+      {% endblock %}
+    </div>
+
+    <div id="search">
+      <span class="title"> 
+        <h1>
+          <a href="/">domain3.net Spam Filter System</a>
+        </h1>
+      </span>
+      <form action="/search" method="POST">
+        <fieldset>
+          <center>
+
+            <label for="to_search">To:</label>
+              <input id="to_email" type="text" name="to_email" maxlength="60" />
+            <label for="from_search">From:</label>
+              <input id="from_email" type="text" name="from_email" maxlength="60" />
+            <input type="submit" value="Search" />
+
+          </center>
+        </fieldset>
+      </form>
+    </div>
+
+    <div id="inner">
+      {% if notice %}
+      <p><strong> {{ notice }} </strong></p>
+      {% endif %}
+      
+      {% block content %}
+
+
+</center>
+
+      {% endblock %}
+    </div>
+  </body>
+</html>
+

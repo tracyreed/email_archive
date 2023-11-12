@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+
+<div id="content">
+{% block content %}
+
+<div>
+<table>
+<tr><th colspan="2">Emails in db</th></tr>
+<tr><td align="right">Good:</td><td align="right">{{ total_good }}</td></tr>
+<tr><td align="right">Spam:</td><td align="right">{{ total_spam }}</td></tr>
+<tr><td align="right">Unsure:</td><td align="right">{{ total_unsure }}</td></tr>
+<tr><td colspan="2"><hr></td></tr>
+<tr><td align="right">Total:</td><td align="right">{{ total }}</td></tr>
+</table>
+</div>
+
+<div>
+<table>
+<tr><th colspan="2">Rate per</th></tr>
+<tr><td align="right">Minute:</td><td align="right">{{ last1minute }}</td></tr>
+<tr><td align="right">Hour:</td><td align="right">{{ last1hour }}</td></tr>
+<tr><td align="right">Day:</td><td align="right">{{ last1day }}</td></tr>
+<tr><td align="right">Week:</td><td align="right">{{ last1week }}</td></tr>
+</table>
+</div>
+
+<p>
+Most recent good mail:
+<table>
+<tr><td align="right">To:</td><td>{{ recent_good.toAddress|slice:":75" }}</td></tr>
+<tr><td align="right">From:</td><td>{{ recent_good.fromAddress|slice:":75" }}</td></tr>
+<tr><td align="right">Subject:</td><td><a href="/email/{{ recent_good.cacheID }}">{{ recent_good.subject|slice:":75" }}</a></td></tr>
+<tr><td align="right">Date:</td><td>{{ recent_good.date }}</td></tr>
+<tr><td align="right">Received:</td><td>{{ recent_good.received }}</td></tr>
+<tr><td align="right">Score:</td><td>{{ recent_good.crmScore }} {{ recent_good.spamStatus }}</td></tr>
+</table>
+</p>
+
+<p>
+Most recent spam mail:
+<table>
+<tr><td align="right">To:</td><td>{{ recent_spam.toAddress|slice:":75" }}</td></tr>
+<tr><td align="right">From:</td><td>{{ recent_spam.fromAddress|slice:":75" }}</td></tr>
+<tr><td align="right">Subject:</td><td><a href="/email/{{ recent_spam.cacheID }}">{{ recent_spam.subject|slice:":75" }}</a></td></tr>
+<tr><td align="right">Date:</td><td>{{ recent_spam.date }}</td></tr>
+<tr><td align="right">Received:</td><td>{{ recent_spam.received }}</td></tr>
+<tr><td align="right">Score:</td><td>{{ recent_spam.crmScore }} {{ recent_spam.spamStatus }}</td></tr>
+</table>
+</p>
+
+</div>
+
+{% endblock %}

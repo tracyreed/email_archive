@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}{{ mail }}{% endblock %}
+{% block content %}
+
+<p>
+    <a href="/email/{{ mail.cacheID }}/resend">Resend this email</a> --
+    <a href="/email/{{ mail.cacheID }}/spam">Tag as spam</a> --
+    <a href="/email/{{ mail.cacheID }}/good">Tag as good</a> --
+    <a href="/email/{{ mail.cacheID }}/raw">Raw</a>
+</p>
+
+<p>
+  <table>
+    <tr>
+        <td align="right" class="header"> 
+            To:
+        </td>
+        <td>
+            {{ mail.toAddress|slice:":75" }}
+        </td>
+    </tr>
+    <tr>
+        <td align="right" class="header">
+            From:
+        </td>
+        <td>
+            {{ mail.fromAddress|slice:":75" }}
+        </td>
+    </tr>
+    <tr><td align="right" class="header">Subject:</td><td>{{ mail.subject|slice:":75" }}</td></tr>
+    <tr><td align="right" class="header">Date:</td><td>{{ mail.date }}</td></tr>
+    <tr><td align="right" class="header">Received:</td><td>{{ mail.received }}</td></tr>
+    <tr><td align="right" class="header">Score:</td><td>{{ mail.crmScore }} {{ mail.spamStatus }}</td></tr>
+  </table>
+</p>
+
+{% if text %}
+
+<pre>
+    {{ text }}
+</pre>
+
+{% endif %}
+
+<ul>
+{% for content, mimetype, partnumber in parts %}
+    <li><a href="/email/{{ mail.cacheID }}/{{ partnumber }}">{{ mimetype }}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}
+
+
+
+

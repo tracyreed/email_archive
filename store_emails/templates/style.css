@@ -1,0 +1,14 @@
+#sidebar {
+	width: 100px;
+	margin: auto;
+}
+
+#content {
+	width: 760px;
+	margin: auto;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+}

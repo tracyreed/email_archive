@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %} {{ title }} {% endblock %}
+{% block content %}
+
+<div>
+      <span class="step-links">
+        {% if mail_list.has_previous %}
+        <a href="?page={{ mail_list.previous_page_number }}"><==</a>
+        {% endif %}
+
+        <span class="current">
+          {{ mail_list.number }} of {{ mail_list.paginator.num_pages }}
+        </span>
+
+        {% if mail_list.has_next %}
+        <a href="?page={{ mail_list.next_page_number }}">==></a>
+        {% endif %}
+      </span>
+
+  <table border="0" cellspacing="0" cellpadding="2">
+    <tr>
+      <th align="left">To</th>
+      <th align="left">Date</th>
+      <th align="left">Subject</th>
+    </tr>
+    <tr>
+      <th align="left">From</th>
+      <th align="left">Rcvd</th>
+      <th align="left">Score</th>
+    </tr>
+
+    {% for mail in mail_list.object_list %}
+    <tr class="{% cycle row1,row2 %}">
+      <td>{{ mail.toAddress|slice:":75" }}</td>
+      <td>{{ mail.date }}</td>
+      <td><a href="/email/{{ mail.cacheID }}">
+	  {% if mail.subject %}
+	  {{ mail.subject }}
+	  {% else %}
+	  [NO SUBJECT]
+	  {% endif %}
+      </a></td>
+    </tr>
+
+    <tr class="{% cycle row1,row2 %}">
+      <td>{{ mail.fromAddress|slice:":75" }}</td>
+      <td>{{ mail.received }}</td>
+      <td>{{ mail.crmScore }} {{ mail.spamStatus }}</td>
+      <td><a href="/email/{{ mail.cacheID }}/resend">resend</a> | <a href='/email/{{ mail.cacheID }}/0'>1st mime</a> | <a href='/email/{{ mail.cacheID }}/raw'>raw</a></td>
+    </tr>
+    {% endfor %}
+
+  
+  
+
+  </table>
+<div style='margin:12px;'>
+      <span class="step-links">
+        {% if mail_list.has_previous %}
+        <a href="?page={{ mail_list.previous_page_number }}">&lt;==</a>
+        {% endif %}
+
+        <span class="current">
+          {{ mail_list.number }} of {{ mail_list.paginator.num_pages }}
+        </span>
+
+        {% if mail_list.has_next %}
+        <a href="?page={{ mail_list.next_page_number }}">==&gt;</a>
+        {% endif %}
+      </span>
+</div>
+
+</div>
+{% endblock %}
