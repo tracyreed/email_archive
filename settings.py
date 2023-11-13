@@ -12,7 +12,7 @@ MANAGERS = ADMINS
 DATABASE_ENGINE = 'mysql'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
 DATABASE_NAME = 'email_archive'             # Or path to database file if using sqlite3.
 DATABASE_USER = 'filter'             # Not used with sqlite3.
-DATABASE_PASSWORD = 'TGCpIGyA'         # Not used with sqlite3.
+DATABASE_PASSWORD = 'revokedpassword'         # Not used with sqlite3.
 DATABASE_HOST = 'mx'             # Set to empty string for localhost. Not used with sqlite3.
 DATABASE_PORT = ''             # Set to empty string for default. Not used with sqlite3.
 
